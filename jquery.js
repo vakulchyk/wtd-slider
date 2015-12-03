@@ -1,14 +1,7 @@
 $(document).ready(function(){
 
-	var iconHeight = 98;
-	
-	
+	var iconHeight = 98;	
 	 
-	// hideShow (thisSlider);
-	// hideShow (".sliderPod");
-	// hideShow (".sliderMood");
-	// hideShow ("sliderWish");
-	
 	$(".slider").mouseleave(closeSlider);
 	
 	$(".btnUp").click(function() {
