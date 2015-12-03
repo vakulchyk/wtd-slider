@@ -4,6 +4,7 @@ $(document).ready(function(){
 	 
 	$(".slider").mouseleave(closeSlider);
 	
+	
 	$(".btnUp").click(function() {
 		rotateUp( $(this) );
 		var thisSlider = $(this).parent();
@@ -36,6 +37,17 @@ $(document).ready(function(){
 		$(this).css("top", iconHeight*($(this).index()))
 		// console.log(iconHeight*($(this).index()));
 	});
+	
+	//setting day of week
+	var thisArrow = $(".sliderDow > .btnDown");
+	console.log(thisArrow);
+	var date = new Date();
+	var dow = date.getDay();
+	for (var i = 0; i < dow; i++) {
+		rotateUp(thisArrow);
+		i += 1;
+		console.log(i);
+	}
 	
 	//opening slider
 	$(".slider").mouseenter(function(){
@@ -75,6 +87,7 @@ $(document).ready(function(){
 	}
 	
 	function rotateDown(thisObj){
+		alert("im in");
 		var parnt = $(thisObj).parent();
 		var iconHeight = 98;
 		var arrHeight = ($(parnt).find('.icon').length - 1) * iconHeight;
@@ -91,7 +104,6 @@ $(document).ready(function(){
 	
 	function hideShow(thisObj){
 		var icons = thisObj.children('.icon');
-		console.log(icons);
 		if (thisObj.parent().hasClass("inactive") == false){
 			icons.each(function(){
 				$(this).css("visibility", 'hidden');
@@ -109,7 +121,6 @@ $(document).ready(function(){
 		else {
 			icons.each(function(){
 				$(this).css("visibility", 'hidden');
-				console.log($(this).css('top'));
 				if (parseInt($(this).css('top')) == iconHeight){
 					$(this).css("visibility", 'visible');
 				}
